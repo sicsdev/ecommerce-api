@@ -52,7 +52,7 @@ exports.authFacebook = asyncHandler(async (req, res, next) => {
 // access    Public
 exports.getFacebookReports = asyncHandler(async (req, res, next) => {
     const queryUrl = new urlParse(req.url);
-    const code = queryParse.parse(queryUrl.query).code;
+    let code = queryParse.parse(queryUrl.query).code;
 
     let data = await getFacebookReports(code);
     res.status(200).json({

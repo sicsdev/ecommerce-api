@@ -7,12 +7,10 @@ exports.googleReports = async function (code) {
   const oauth2Client = new google.auth.OAuth2(
     '944509388883-41eajpiirg10gjv5rkcp2na4012c6lcc.apps.googleusercontent.com',
     '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',
-    "http://localhost:8800/api/v1/user/google/reports"
+    "http://localhost:3000/settings"
   );
 
   const { tokens } = await oauth2Client.getToken(code);
-  console.log("token : ", tokens.access_token);
-
   const result = await axios({
     method: "POST",
     headers: {
@@ -39,7 +37,7 @@ exports.googleAuth = async function (req, res, next) {
     const oauth2Client = new google.auth.OAuth2(
       '944509388883-41eajpiirg10gjv5rkcp2na4012c6lcc.apps.googleusercontent.com',
       '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',
-      "http://localhost:8800/api/v1/user/google/reports"
+      "http://localhost:3000/settings"
     )
     const scopes = ["https://www.googleapis.com/auth/adwords profile email openid"];
 
